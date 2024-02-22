@@ -13,6 +13,7 @@
     <style>
         body {
             font-family: 'Kanit', sans-serif;
+            background-color: #F5F5F5;
         }
     </style>
 </head>
@@ -24,32 +25,34 @@
         <b style="font-size: 24px">COMPARE SMARTPHONE</b>
 
         <div class="row col-12  mt-3 mb-5">
-            <div class="col-6 ">
+            <div class="col-6 "
+                style="background-color: #ffffff;border-left: 1px solid #d3d3d3; border-right: 1px solid #d3d3d3;">
 
-                <div class="card hov-primary border-0"
+                <div class="card hov-primary mt-3 mb-3 border-0"
                     style="background-color: rgb(231, 231, 231) ;color:rgb(32, 32, 32); border-radius: 0;">
                     <div class="card-body ">
-                        <h6 class="card-subtitle mb-2 text-body-secondary">COMPARE WITH</h6>
-                        <form class="d-flex" role="search">
-                            <input class="form-control me-2 " style="border-radius: 0;" type="search"
-                                placeholder="Search" aria-label="Search">
-                            <button class="btn " type="submit">Search</button>
+                        <form class="clearfix" action="" method="get" _lpchecked="1">
+                            <strong class="cmp-with floatLeftDisplay movecmpwith">Compare with</strong><br>
+                            <input type="text" id="sSearch1" class="st-input-cmp float-left" name="sSearch1"
+                                value="" autocomplete="off" placeholder="Search">
+
                         </form>
                     </div>
                 </div>
             </div>
-            <div class="col-6">
-                <div class="card hov-primary border-0"
+            <div class="col-6" style="background-color: #ffffff; border-right: 1px solid #d3d3d3;">
+                <div class="card hov-primary mt-3 mb-3 border-0"
                     style="background-color: rgb(231, 231, 231) ;color:rgb(32, 32, 32); border-radius: 0;">
                     <div class="card-body ">
-                        <h6 class="card-subtitle mb-2 text-body-secondary">COMPARE WITH</h6>
-                        <form class="d-flex" role="search">
-                            <input class="form-control me-2 " style="border-radius: 0;" type="search"
-                                placeholder="Search" aria-label="Search">
-                            <button class="btn " type="submit">Search</button>
+                        <form class="clearfix" action="" method="get" _lpchecked="1">
+                            <strong class="cmp-with floatLeftDisplay movecmpwith">Compare with</strong><br>
+                            <input type="text" id="sSearch2" class="st-input-cmp float-left" name="sSearch2"
+                                value="" autocomplete="off" placeholder="Search">
+
                         </form>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>

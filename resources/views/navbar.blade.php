@@ -1,10 +1,10 @@
 <nav class="navbar bg-white  border-bottom border-body fixed-top ">
     <div class="container-fluid">
         <div class="row col-12 align-items-center">
-            <div class="col-2">
+            <div class="col-3">
                 <a href="{{ url('/') }}" class="navbar-brand" style="font-size: 24px">Sentimet Dashboard</a>
             </div>
-            <div class="col-10">
+            <div class="col-9">
                 <a href="{{ url('/') }}" class="navbar-brand" style="color: rgb(158, 158, 158)" >Home</a>
                 <a href="{{ url('/compare') }}" class="navbar-brand" style="color: rgb(158, 158, 158)"  >Compare</a>
 

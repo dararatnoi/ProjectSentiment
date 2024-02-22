@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <!-- รวม wordcloud.js library -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://unpkg.com/wordcloud@2.36.0/dist/wordcloud.js"></script>
     <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-base.min.js"></script>
     <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-tag-cloud.min.js"></script>
@@ -19,6 +19,7 @@
     <style>
         body {
             font-family: 'Kanit', sans-serif;
+            background-color: #F5F5F5;
         }
 
         /* Add some basic styling for better visibility */
@@ -63,42 +64,64 @@
 
 
     <!--content-->
-    <div class="container" style="margin-top: 7%">
+    <div class="container" style="margin-top: 6%">
 
         <div class="row col-12 row-gap-3 mb-5">
             <div class="col-3">
                 <div class="card  hov-primary border-0"
-                    style="background-color:#8d9ec6 ;color:aliceblue; box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.2);">
-                    <div class="card-body ">
-                        <h3 class="card-title">65,000</h3>
-                        <h6 class="card-subtitle mb-2 text-body-secondary">Reviews</h6>
+                    style="background-color:#8d9ec6 ;color:aliceblue; box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.2);border-radius: 20px;">
+                    <div class="card-body d-flex  justify-content-between mb-2 ">
+                        <div>
+                            <h3 class="card-title">65,000</h3>
+                            <h6 class="card-subtitle mb-2 text-body-secondary">Reviews</h6>
+                        </div>
+                        <span class="material-icons" style="font-size: 30px;">
+                            mode_comment
+                        </span>
+
                     </div>
                 </div>
             </div>
             <div class="col-3">
                 <div
-                    class="card border-0 hov-primary"style="background-color: #70c1b3 ;color:aliceblue;box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.2);">
-                    <div class="card-body">
-                        <h3 class="card-title">45,000</h3>
-                        <h6 class="card-subtitle mb-2 text-body-secondary">Positive Reviews</h6>
+                    class="card border-0 hov-primary"style="background-color: #70c1b3 ;color:aliceblue;box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.2);border-radius: 20px;">
+                    <div class="card-body d-flex  justify-content-between mb-2 ">
+                        <div>
+                            <h3 class="card-title">45,000</h3>
+                            <h6 class="card-subtitle mb-2 text-body-secondary">Positive Reviews</h6>
+                        </div>
+                        <span class="material-icons" style="font-size: 30px;">
+                            sentiment_satisfied_alt
+                        </span>
                     </div>
+
                 </div>
             </div>
             <div class="col-3">
                 <div
-                    class="card border-0 hov-primary"style="background-color: #EFBF38;color:aliceblue;box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.2);">
-                    <div class="card-body">
-                        <h3 class="card-title">10,000</h3>
-                        <h6 class="card-subtitle mb-2 text-body-secondary">Neutral Reviews</h6>
+                    class="card border-0 hov-primary"style="background-color: #EFBF38;color:aliceblue;box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.2);border-radius: 20px;">
+                    <div class="card-body d-flex  justify-content-between mb-2 ">
+                        <div>
+                            <h3 class="card-title">10,000</h3>
+                            <h6 class="card-subtitle mb-2 text-body-secondary">Neutral Reviews</h6>
+                        </div>
+                        <span class="material-icons" style="font-size: 30px;">
+                            sentiment_neutral
+                        </span>
                     </div>
                 </div>
             </div>
             <div class="col-3">
                 <div class="card border-0 hov-primary"
-                    style="background-color: #dd7373;color:aliceblue;box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.2);">
-                    <div class="card-body">
-                        <h3 class="card-title">5,000</h3>
-                        <h6 class="card-subtitle mb-2 text-body-secondary">Negative Reviews</h6>
+                    style="background-color: #dd7373;color:aliceblue;box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.2);border-radius: 20px;">
+                    <div class="card-body d-flex  justify-content-between mb-2 ">
+                        <div>
+                            <h3 class="card-title">5,000</h3>
+                            <h6 class="card-subtitle mb-2 text-body-secondary">Negative Reviews</h6>
+                        </div>
+                        <span class="material-icons"style="font-size: 30px;">
+                            sentiment_very_dissatisfied
+                        </span>
                     </div>
                 </div>
             </div>
@@ -107,15 +130,49 @@
 
 
         <!--Chart-->
-        <div class="row col-12 mt-3 mb-5">
-            <div class="card border-min hov-primary">
+        <div class="row col-12  mb-5">
+            <div class="card border-0 hov-primary"
+                style="box-shadow: 5px 5px 5px 5px rgba(197, 197, 197, 0.2);border-radius: 20px;">
                 <div class="card-body">
+                    <div class="d-flex justify-content-end">
+                        <div class="d-flex justify-content-end align-items-center">
+                            <label for="appleCheckbox" class="me-2">Apple:</label>
+                            <input class="form-check-input" type="checkbox" id="appleCheckbox" value="apple">
+                        </div>
+                    </div>
                     <div>
-                        <canvas id="myChart" width="50" height="24"></canvas>
+                        <canvas id="myChart" width="50" height="18"></canvas>
                     </div>
                 </div>
             </div>
         </div>
+        {{-- filter brand --}}
+        <script>
+            $(document).ready(function() {
+                // เมื่อมีการเปลี่ยนแปลงใน checkbox
+                $('#appleCheckbox').change(function() {
+                    // ตรวจสอบว่า checkbox ถูกเลือกหรือไม่
+                    var isChecked = $(this).is(':checked');
+
+                    // ส่งข้อมูลไปยังเซิร์ฟเวอร์โดยใช้ AJAX
+                    $.ajax({
+                        url: 'your-server-url',
+                        method: 'POST',
+                        data: {
+                            isChecked: isChecked
+                        },
+                        success: function(response) {
+                            // ประมวลผลข้อมูลที่ได้จากเซิร์ฟเวอร์
+                            console.log(response);
+                        },
+                        error: function(xhr, status, error) {
+                            // จัดการข้อผิดพลาด
+                            console.error(error);
+                        }
+                    });
+                });
+            });
+        </script>
         {{-- Chartjs --}}
         <script>
             document.addEventListener('DOMContentLoaded', function() {
@@ -300,24 +357,33 @@
             }
         </script>
         {{-- Select aspect --}}
-        <div class="row col-12 mt-3 ">
-            <div class="card border-min hov-primary my-3 ">
-                <div class="d-flex justify-content-end">
-
-                    <div class="d-flex justify-content-end mb-3 mt-3 ">
-                        <select id="aspectFilter" class="form-select" aria-label="selectedAspect">
-                            <option value="all">All</option>
-                            <option value="Camera">Camera</option>
-                            <option value="Battery">Battery</option>
-                            <option value="Screen">Screen</option>
-                            <option value="Performance">Performance</option>
-                            <option value="Price">Price</option>
-                            <option value="Other">Other</option>
-                        </select>
+        <div class="row col-12 row-gap-3 mt-3 ">
+            <div class="col-6">
+                <div class="card border-0 hov-primary my-3 ">
+                    <div class="card-body">
+                        jfnjdfklf
                     </div>
                 </div>
-                <div class="card-body">
-                    <canvas id="myChartaspect" width="50" height="24"></canvas>
+            </div>
+            <div class="col-6">
+                <div class="card border-0 hov-primary my-3 "
+                    style="box-shadow: 5px 5px 5px 5px rgba(197, 197, 197, 0.2);border-radius: 20px;">
+                    <div class="d-flex justify-content-end">
+                        <div class="d-flex justify-content-end my-2 me-2  ">
+                            <select id="aspectFilter" class="form-select" aria-label="selectedAspect">
+                                <option value="all">All</option>
+                                <option value="Camera">Camera</option>
+                                <option value="Battery">Battery</option>
+                                <option value="Screen">Screen</option>
+                                <option value="Performance">Performance</option>
+                                <option value="Price">Price</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="myChartaspect" width="50" height="24"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
@@ -357,7 +423,7 @@
                                 display: true,
                                 text: 'Customer feelings towards each aspect of smartphones',
                                 font: {
-                                    size: 18,
+                                    size: 16,
                                     family: 'Kanit',
                                 },
                                 position: 'top'
