@@ -359,10 +359,12 @@
         {{-- Select aspect --}}
         <div class="row col-12 row-gap-3 mt-3 ">
             <div class="col-6">
-                <div class="card border-0 hov-primary my-3 ">
+                <div class="card border-0 hov-primary my-3"
+                    style="box-shadow: 5px 5px 5px 5px rgba(197, 197, 197, 0.2);border-radius: 20px;">
                     <div class="card-body">
-                        jfnjdfklf
+                        <canvas id="donutChartt"></canvas>
                     </div>
+
                 </div>
             </div>
             <div class="col-6">
@@ -382,42 +384,35 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <canvas id="myChartaspect" width="50" height="24"></canvas>
+                        <canvas id="horizontalStackedBarChart" width="50" height="30"></canvas>
                     </div>
                 </div>
             </div>
         </div>
-        {{-- Chartjs --}}
+        {{-- Chartjs donut --}}
         <script>
             document.addEventListener('DOMContentLoaded', function() {
-                const barCtxAspect = document.getElementById('myChartaspect');
-                const myChart = new Chart(barCtxAspect, {
-                    type: 'bar',
+                var ctx = document.getElementById('donutChartt');
+                var donutChart = new Chart(ctx, {
+                    type: 'doughnut',
                     data: {
-                        labels: ['Camera', 'Battery', 'Screen', 'Performance', 'Price', 'Other'],
+                        labels: ['Positive', 'Negative', 'Neutral'],
                         datasets: [{
-                            label: 'Positive',
-                            data: [6000, 5000, 4000, 4300, 1200, 3200],
-                            borderWidth: 1,
-                            backgroundColor: '#70c1b3'
-                        }, {
-                            label: 'Neutral',
-                            data: [2000, 3030, 1000, 1500, 1200, 1200],
-                            borderWidth: 1,
-                            backgroundColor: '#EFBF38'
-                        }, {
-                            label: 'Negative',
-                            data: [4500, 1234, 1000, 1300, 1400, 2000],
-                            borderWidth: 1,
-                            backgroundColor: '#dd7373'
+                            data: [20, 10, 15],
+                            backgroundColor: [
+                                'rgba(75, 192, 192, 0.8)',
+                                'rgba(255, 99, 132, 0.8)',
+                                'rgba(255, 205, 86, 0.8)'
+                            ],
+                            borderColor: [
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(255, 205, 86, 1)'
+                            ],
+                            borderWidth: 1
                         }]
                     },
                     options: {
-                        scales: {
-                            y: {
-                                beginAtZero: true
-                            }
-                        },
                         plugins: {
                             title: {
                                 display: true,
@@ -428,74 +423,169 @@
                                 },
                                 position: 'top'
                             }
+
                         }
                     }
                 });
+            });
+        </script>
+        {{-- Chartjs bar --}}
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var ctx = document.getElementById('horizontalStackedBarChart');
+                var horizontalStackedBarChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Camera', 'Battery', 'Screen', 'Performance', 'Price', 'Other'],
+                        datasets: [{
+                            label: 'Positive',
+                            data: [65, 59, 80, 81, 56, 55, 40],
+                            backgroundColor: 'rgba(54, 162, 235, 0.5)'
+                        }, {
+                            label: 'Neutral',
+                            data: [28, 48, 40, 19, 86, 27, 90],
+                            backgroundColor: 'rgba(255, 205, 86, 0.5)'
 
-                // Event listener for select dropdown
-                document.getElementById('aspectFilter').addEventListener('change', function() {
-                    handleAspectFilterChange(this.value);
-                });
+                        }, {
+                            label: 'Negative',
+                            data: [40, 30, 60, 70, 50, 80, 90],
+                            backgroundColor: 'rgba(255, 99, 132, 0.5)',
 
-                function handleAspectFilterChange(selectedAspect) {
-                    const filteredData = getFilteredChartData(selectedAspect);
+                        }]
+                    },
+                    options: {
+                        indexAxis: 'y',
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: 'Customer feelings towards each aspect of smartphones',
+                                font: {
+                                    size: 16,
+                                    family: 'Kanit',
+                                },
+                                position: 'top'
+                            }
+                        },
+                        scales: {
+                            x: {
+                                stacked: true,
+                                ticks: {
+                                    beginAtZero: true,
+                                    suggestedMax: 100
+                                }
+                            },
+                            y: {
+                                stacked: true,
+                                suggestedMin: 0,
+                                suggestedMax: 100
+                            }
+                        },
 
-                    // Update chart with filtered data
-                    myChart.data.datasets.forEach((dataset, index) => {
-                        dataset.data = filteredData[index];
-                    });
-
-                    // Update chart options (if needed)
-                    myChart.options.plugins.title.text =
-                        `Customer feelings towards ${selectedAspect === 'all' ? 'all aspects' : selectedAspect} of smartphones`;
-
-                    // Update chart
-                    myChart.update();
-                }
-
-                function getFilteredChartData(selectedAspect) {
-                    if (selectedAspect === 'all') {
-                        // If 'All' is selected, return the original data
-                        return myChart.data.datasets.map(dataset => Array.from(dataset.data));
                     }
-
-                    // Filter data based on the selected aspect
-                    const aspectIndex = myChart.data.labels.indexOf(selectedAspect);
-                    return myChart.data.datasets.map(dataset => [dataset.data[aspectIndex]]);
-                }
+                });
             });
         </script>
 
-        {{-- WORD CLOUD --}}
-
-        <div class="row col-12 row-gap-3 mt-1">
-            <div class="col-4" style="">
-                <div class="card border-min ">
+        <!--table and tag cloud--->
+        <div class="row col-12 row-gap-3 mt-3 ">
+            <div class="col-6">
+                <div class="card border-0 hov-primary my-3"
+                    style="box-shadow: 5px 5px 5px 5px rgba(197, 197, 197, 0.2);border-radius: 20px;">
                     <div class="card-body">
-                        WORD CLOUD
-                    </div>
-                </div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col" colspan="3"></th>
 
+                                    <th scope="col" style="color: #9AA5B0">Aspect</th>
+                                    <th scope="col" style="color: #9AA5B0">Sentiment</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td colspan="2">Mark</td>
+                                    <td><span
+                                            style="padding: 3px; border: 1px solid#C7E5FF; border-radius: 5px; background-color: #F6FAFF; color: #50ADFF;">Baterry</span>
+                                    </td>
+                                    <td><span
+                                            style="padding: 3px; border: 1px solid#DCF4E7; border-radius: 5px; background-color: #EFFAF5; color: #1FBB66;">Positive</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td colspan="2">Jacob</td>
+                                    <td><span
+                                            style="padding: 3px; border: 1px solid#C7E5FF; border-radius: 5px; background-color: #F6FAFF; color: #50ADFF;">Screen</span>
+                                    </td>
+                                    <td><span
+                                            style="padding: 3px; border: 1px solid#DCF4E7; border-radius: 5px; background-color: #EFFAF5; color: #1FBB66;">Positive</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td colspan="2">Larry the Bird</td>
+                                    <td><span
+                                            style="padding: 3px; border: 1px solid#C7E5FF; border-radius: 5px; background-color: #F6FAFF; color: #50ADFF;">Baterry</span>
+                                    </td>
+                                    <td><span
+                                            style="padding: 3px; border: 1px solid#FCE9EA; border-radius: 5px; background-color: #FEF3F3; color: #EA4141;">Negative</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">4</th>
+                                    <td colspan="2">Larry the Bird</td>
+                                    <td><span
+                                            style="padding: 3px; border: 1px solid#C7E5FF; border-radius: 5px; background-color: #F6FAFF; color: #50ADFF;">Baterry</span>
+                                    </td>
+                                    <td><span
+                                            style="padding: 3px; border: 1px solid#FEEBCE; border-radius: 5px; background-color: #FFF7E6; color: #EEA717;">Negative</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                </div>
             </div>
-            <div class="col-4" style="">
-                <div class="card border-min hov-primary ">
+            <div class="col-6">
+                <div class="card border-0 hov-primary my-3 "
+                    style="box-shadow: 5px 5px 5px 5px rgba(197, 197, 197, 0.2);border-radius: 20px;">
                     <div class="card-body">
-                        POSITIVE WORD CLOUD
+                        <div class="row col-12 row-gap-3 mt-2 mb-5">
+                            <div class="col-4" style="">
+                                <div class="card border-min hov-primary ">
+                                    <div class="card-body">
+                                        <div id="wordCloudContainer" style="width: 30px; height: 40px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- <div class="col-4" style="">
+                                <div class="card border-min hov-primary ">
+                                    <div class="card-body">
+                                        <div id="poscontainer" style="width: 350px; height: 300px;"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-4" style="">
+                                <div class="card border-min hov-primary ">
+                                    <div class="card-body">
+                                        <div id="negcontainer" style="width: 350px; height: 300px;"></div>
+                                    </div>
+                                </div>
+
+                            </div> --}}
+                        </div>
                     </div>
                 </div>
-
-            </div>
-            <div class="col-4" style="">
-                <div class="card border-min hov-primary ">
-                    <div class="card-body">
-                        NEGATIVE WORD CLOUD
-                    </div>
-                </div>
-
             </div>
         </div>
 
-        <!-- WORD CLOUD--->
+               {{-- WORD CLOUD --}}
+
+        {{-- <!-- WORD CLOUD--->
         <div class="row col-12 row-gap-3 mt-2 mb-5">
             <div class="col-4" style="">
                 <div class="card border-min hov-primary ">
@@ -520,9 +610,8 @@
                 </div>
 
             </div>
-        </div>
+        </div> --}}
 
-        <!--COMPARE Smartphone--->
 
     </div>
 
