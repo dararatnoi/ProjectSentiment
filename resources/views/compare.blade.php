@@ -506,10 +506,10 @@
                 </div>
             </div>
 
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-6 bg-dark">.col-12 .col-md-8</div>
                 <div class="col-6 bg-danger">.col-6 .col-md-4</div>
-            </div>
+            </div> --}}
         </div>
 
     </div>

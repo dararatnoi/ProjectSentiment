@@ -55,6 +55,19 @@
             width: 200px;
             /* Set your desired width here */
         }
+
+        .dropdown-menu li {
+            margin-bottom: 5px;
+            margin-left: 10px
+        }
+
+        .btn.form-select {
+            box-shadow: none;
+            /* ไม่มีเงา */
+            border: 1px solid #e9e9e9;
+            /* เส้นขอบสีเทา */
+
+        }
     </style>
 </head>
 
@@ -134,10 +147,50 @@
             <div class="card border-0 hov-primary"
                 style="box-shadow: 5px 5px 5px 5px rgba(197, 197, 197, 0.2);border-radius: 20px;">
                 <div class="card-body">
-                    <div class="d-flex justify-content-end">
-                        <div class="d-flex justify-content-end align-items-center">
-                            <label for="appleCheckbox" class="me-2">Apple:</label>
-                            <input class="form-check-input" type="checkbox" id="appleCheckbox" value="apple">
+                    <div class="d-flex justify-content-end align-items-center ">
+
+                        <div class="dropdown">
+                            <button class="btn form-select ms-1" type="button" id="dropdownMenuButton"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Select Brands
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <li>
+                                    <input type="checkbox" id="allBrandsCheckbox" class="form-check-input"
+                                        value="all" checked>
+                                    <label for="allBrandsCheckbox" class="form-check-label">All</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="appleCheckbox" class="form-check-input" value="apple"
+                                        checked>
+                                    <label for="appleCheckbox" class="form-check-label">Apple</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="samsungCheckbox" class="form-check-input" value="samsung"
+                                        checked>
+                                    <label for="samsungCheckbox" class="form-check-label">Samsung</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="huaweiCheckbox" class="form-check-input" value="huawei"
+                                        checked>
+                                    <label for="huaweiCheckbox" class="form-check-label">Huawei</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="vivoCheckbox" class="form-check-input" value="vivo"
+                                        checked>
+                                    <label for="vivoCheckbox" class="form-check-label">Vivo</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="xiaomiCheckbox" class="form-check-input" value="xiaomi"
+                                        checked>
+                                    <label for="xiaomiCheckbox" class="form-check-label">Xiaomi</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="oppoCheckbox" class="form-check-input" value="oppo"
+                                        checked>
+                                    <label for="oppoCheckbox" class="form-check-label">Oppo</label>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                     <div>
@@ -371,8 +424,46 @@
                 <div class="card border-0 hov-primary my-3 "
                     style="box-shadow: 5px 5px 5px 5px rgba(197, 197, 197, 0.2);border-radius: 20px;">
                     <div class="d-flex justify-content-end">
-                        <div class="d-flex justify-content-end my-2 me-2  ">
-                            <select id="aspectFilter" class="form-select" aria-label="selectedAspect">
+                        <div class="d-flex justify-content-end mt-2 me-2  ">
+                            <div class="dropdown">
+                                <button class="btn form-select" type="button" id="dropdownMenuButton"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Select Apect
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <li>
+                                        <input type="checkbox" id="appleCheckbox" class="form-check-input"
+                                            value="apple" checked>
+                                        <label for="appleCheckbox" class="form-check-label">Camera</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="samsungCheckbox" class="form-check-input"
+                                            value="samsung" checked>
+                                        <label for="samsungCheckbox" class="form-check-label">Battery</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="huaweiCheckbox" class="form-check-input"
+                                            value="huawei" checked>
+                                        <label for="huaweiCheckbox" class="form-check-label">Screen</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="vivoCheckbox" class="form-check-input"
+                                            value="vivo" checked>
+                                        <label for="vivoCheckbox" class="form-check-label">Performance</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="xiaomiCheckbox" class="form-check-input"
+                                            value="xiaomi" checked>
+                                        <label for="xiaomiCheckbox" class="form-check-label">Price</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="oppoCheckbox" class="form-check-input"
+                                            value="oppo" checked>
+                                        <label for="oppoCheckbox" class="form-check-label">Other</label>
+                                    </li>
+                                </ul>
+                            </div>
+                            {{-- <select id="aspectFilter" class="form-select" aria-label="selectedAspect">
                                 <option value="all">All</option>
                                 <option value="Camera">Camera</option>
                                 <option value="Battery">Battery</option>
@@ -380,34 +471,34 @@
                                 <option value="Performance">Performance</option>
                                 <option value="Price">Price</option>
                                 <option value="Other">Other</option>
-                            </select>
+                            </select> --}}
                         </div>
                     </div>
                     <div class="card-body">
-                        <canvas id="horizontalStackedBarChart" width="50" height="30"></canvas>
+                        <canvas id="horizontalStackedBarChart" width="50" height="25"></canvas>
                     </div>
                 </div>
             </div>
         </div>
         {{-- Chartjs donut --}}
-        <script>
+        {{-- <script>
             document.addEventListener('DOMContentLoaded', function() {
                 var ctx = document.getElementById('donutChartt');
                 var donutChart = new Chart(ctx, {
                     type: 'doughnut',
                     data: {
-                        labels: ['Positive', 'Negative', 'Neutral'],
+                        labels: ['Positive', 'Neutral', 'Negative'],
                         datasets: [{
                             data: [20, 10, 15],
                             backgroundColor: [
                                 'rgba(75, 192, 192, 0.8)',
-                                'rgba(255, 99, 132, 0.8)',
-                                'rgba(255, 205, 86, 0.8)'
+                                'rgba(255, 205, 86, 0.8)',
+                                'rgba(255, 99, 132, 0.8)'
                             ],
                             borderColor: [
-                                'rgba(75, 192, 192, 1)',
-                                'rgba(255, 99, 132, 1)',
-                                'rgba(255, 205, 86, 1)'
+                                'rgba(75, 192, 192, 0.8)',
+                                'rgba(255, 205, 86, 0.8)',
+                                'rgba(255, 99, 132, 0.8)'
                             ],
                             borderWidth: 1
                         }]
@@ -428,9 +519,50 @@
                     }
                 });
             });
-        </script>
+        </script> --}}
         {{-- Chartjs bar --}}
         <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var ctx = document.getElementById('donutChartt');
+                var donutChart = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Positive', 'Neutral', 'Negative'],
+                        datasets: [{
+                            data: [20, 10, 15],
+                            backgroundColor: [
+                                'rgba(75, 192, 192, 0.8)',
+                                'rgba(255, 205, 86, 0.8)',
+                                'rgba(255, 99, 132, 0.8)'
+                            ],
+                            borderColor: [
+                                'rgba(75, 192, 192, 0.8)',
+                                'rgba(255, 205, 86, 0.8)',
+                                'rgba(255, 99, 132, 0.8)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: 'Sentiment Analysis Overview',
+                                font: {
+                                    size: 16,
+                                    family: 'Kanit',
+                                },
+                                position: 'top'
+                            }
+
+                        },
+                        maintainAspectRatio: false,
+                        responsive: true,
+                        width: 500,
+                        height: 1000
+                    }
+                });
+            });
             document.addEventListener('DOMContentLoaded', function() {
                 var ctx = document.getElementById('horizontalStackedBarChart');
                 var horizontalStackedBarChart = new Chart(ctx, {
@@ -487,7 +619,7 @@
         </script>
 
         <!--table and tag cloud--->
-        <div class="row col-12 row-gap-3 mt-3 ">
+        <div class="row col-12 row-gap-3  ">
             <div class="col-6">
                 <div class="card border-0 hov-primary my-3"
                     style="box-shadow: 5px 5px 5px 5px rgba(197, 197, 197, 0.2);border-radius: 20px;">
@@ -504,7 +636,7 @@
                             <tbody>
                                 <tr>
                                     <th scope="row">1</th>
-                                    <td colspan="2">Mark</td>
+                                    <td colspan="2">ชอบที่แบตอึด ชาร์จไว</td>
                                     <td><span
                                             style="padding: 3px; border: 1px solid#C7E5FF; border-radius: 5px; background-color: #F6FAFF; color: #50ADFF;">Baterry</span>
                                     </td>
@@ -514,7 +646,7 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">2</th>
-                                    <td colspan="2">Jacob</td>
+                                    <td colspan="2">จอลื่น ทัชง่าย</td>
                                     <td><span
                                             style="padding: 3px; border: 1px solid#C7E5FF; border-radius: 5px; background-color: #F6FAFF; color: #50ADFF;">Screen</span>
                                     </td>
@@ -524,7 +656,7 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">3</th>
-                                    <td colspan="2">Larry the Bird</td>
+                                    <td colspan="2">แบตลดฮวบ ๆ ไหลเป็นน้ำเลย</td>
                                     <td><span
                                             style="padding: 3px; border: 1px solid#C7E5FF; border-radius: 5px; background-color: #F6FAFF; color: #50ADFF;">Baterry</span>
                                     </td>
@@ -534,12 +666,83 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">4</th>
-                                    <td colspan="2">Larry the Bird</td>
+                                    <td colspan="2">แบตไม่ได้อึดมากแต่ก็ไม่ได้ลดลงเร็ว</td>
                                     <td><span
                                             style="padding: 3px; border: 1px solid#C7E5FF; border-radius: 5px; background-color: #F6FAFF; color: #50ADFF;">Baterry</span>
                                     </td>
                                     <td><span
-                                            style="padding: 3px; border: 1px solid#FEEBCE; border-radius: 5px; background-color: #FFF7E6; color: #EEA717;">Negative</span>
+                                            style="padding: 3px; border: 1px solid#FEEBCE; border-radius: 5px; background-color: #FFF7E6; color: #EEA717;">Neutral</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">5</th>
+                                    <td colspan="2">เล่นไม่ถึงวัน แบตหมดแล้วแย่มาก</td>
+                                    <td><span
+                                            style="padding: 3px; border: 1px solid#C7E5FF; border-radius: 5px; background-color: #F6FAFF; color: #50ADFF;">Baterry</span>
+                                    </td>
+                                    <td><span
+                                            style="padding: 3px; border: 1px solid#FCE9EA; border-radius: 5px; background-color: #FEF3F3; color: #EA4141;">Negative</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">6</th>
+                                    <td colspan="2">จอทัชโอเค</td>
+                                    <td><span
+                                            style="padding: 3px; border: 1px solid#C7E5FF; border-radius: 5px; background-color: #F6FAFF; color: #50ADFF;">Screen</span>
+                                    </td>
+                                    <td><span
+                                            style="padding: 3px; border: 1px solid#FEEBCE; border-radius: 5px; background-color: #FFF7E6; color: #EEA717;">Neutral</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">7</th>
+                                    <td colspan="2">จอเล็กมาก</td>
+                                    <td><span
+                                            style="padding: 3px; border: 1px solid#C7E5FF; border-radius: 5px; background-color: #F6FAFF; color: #50ADFF;">Screen</span>
+                                    </td>
+                                    <td><span
+                                            style="padding: 3px; border: 1px solid#FCE9EA; border-radius: 5px; background-color: #FEF3F3; color: #EA4141;">Negative</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">8</th>
+                                    <td colspan="2">กล้องถายออกมาแล้วสวยมาก ชอบสุด ๆ</td>
+                                    <td><span
+                                            style="padding: 3px; border: 1px solid#C7E5FF; border-radius: 5px; background-color: #F6FAFF; color: #50ADFF;">Camera</span>
+                                    </td>
+                                    <td><span
+                                            style="padding: 3px; border: 1px solid#DCF4E7; border-radius: 5px; background-color: #EFFAF5; color: #1FBB66;">Positive</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">9</th>
+                                    <td colspan="2">ผมใช้ iPhone 14 อยู่
+                                        ต้องยอมรับเรื่องกล้องครับถ่ายภาพได้ประทับใจจริงๆ </td>
+                                    <td><span
+                                            style="padding: 3px; border: 1px solid#C7E5FF; border-radius: 5px; background-color: #F6FAFF; color: #50ADFF;">Camera</span>
+                                    </td>
+                                    <td><span
+                                            style="padding: 3px; border: 1px solid#DCF4E7; border-radius: 5px; background-color: #EFFAF5; color: #1FBB66;">Positive</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">10</th>
+                                    <td colspan="2">ราคาดีงามมาก คุ้มสุด ๆ</td>
+                                    <td><span
+                                            style="padding: 3px; border: 1px solid#C7E5FF; border-radius: 5px; background-color: #F6FAFF; color: #50ADFF;">Price</span>
+                                    </td>
+                                    <td><span
+                                            style="padding: 3px; border: 1px solid#DCF4E7; border-radius: 5px; background-color: #EFFAF5; color: #1FBB66;">Positive</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">11</th>
+                                    <td colspan="2">ราคาโอเค</td>
+                                    <td><span
+                                            style="padding: 3px; border: 1px solid#C7E5FF; border-radius: 5px; background-color: #F6FAFF; color: #50ADFF;">Price</span>
+                                    </td>
+                                    <td><span
+                                            style="padding: 3px; border: 1px solid#FEEBCE; border-radius: 5px; background-color: #FFF7E6; color: #EEA717;">Neutral</span>
                                     </td>
                                 </tr>
                             </tbody>
@@ -553,64 +756,37 @@
                 <div class="card border-0 hov-primary my-3 "
                     style="box-shadow: 5px 5px 5px 5px rgba(197, 197, 197, 0.2);border-radius: 20px;">
                     <div class="card-body">
-                        <div class="row col-12 row-gap-3 mt-2 mb-5">
-                            <div class="col-4" style="">
-                                <div class="card border-min hov-primary ">
-                                    <div class="card-body">
-                                        <div id="wordCloudContainer" style="width: 30px; height: 40px;"></div>
-                                    </div>
+                        <div class="row col-12  mt-1 mb-2">
+                            <div class="card border-min hov-primary ">
+                                <div class="card-body mx-3">
+                                    <div id="wordCloudContainer" class="border-min"
+                                        style="width: 450px; height: 200px; "></div>
                                 </div>
                             </div>
-                            {{-- <div class="col-4" style="">
+                        </div>
+                        <div class="row col-12 row-gap-1 mt-1 mb-2">
+                            <div class="col-6" style="">
                                 <div class="card border-min hov-primary ">
                                     <div class="card-body">
-                                        <div id="poscontainer" style="width: 350px; height: 300px;"></div>
+                                        <div id="poscontainer" style="width: 200px; height: 220px;"></div>
                                     </div>
                                 </div>
 
                             </div>
-                            <div class="col-4" style="">
+                            <div class="col-6" style="">
                                 <div class="card border-min hov-primary ">
                                     <div class="card-body">
-                                        <div id="negcontainer" style="width: 350px; height: 300px;"></div>
+                                        <div id="negcontainer" style="width: 200px; height: 220px;"></div>
                                     </div>
                                 </div>
 
-                            </div> --}}
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-               {{-- WORD CLOUD --}}
-
-        {{-- <!-- WORD CLOUD--->
-        <div class="row col-12 row-gap-3 mt-2 mb-5">
-            <div class="col-4" style="">
-                <div class="card border-min hov-primary ">
-                    <div class="card-body">
-                        <div id="wordCloudContainer" style="width: 350px; height: 300px;"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4" style="">
-                <div class="card border-min hov-primary ">
-                    <div class="card-body">
-                        <div id="poscontainer" style="width: 350px; height: 300px;"></div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-4" style="">
-                <div class="card border-min hov-primary ">
-                    <div class="card-body">
-                        <div id="negcontainer" style="width: 350px; height: 300px;"></div>
-                    </div>
-                </div>
-
-            </div>
-        </div> --}}
 
 
     </div>
@@ -791,6 +967,10 @@
         ];
         var chart = anychart.tagCloud(data);
         chart.container("wordCloudContainer");
+        chart.title("TAG CLOUDS-ALL SENTIMENT");
+        chart.normal().fontFamily('Kanit'); // กำหนดแบบอักษรทั่วไป
+        chart.hovered().fontFamily('Kanit'); // กำหนดแบบอักษรเมื่อโฮเวอร์
+
         chart.draw();
     });
     anychart.onDocumentReady(function() {
@@ -828,6 +1008,9 @@
         ];
         var chart = anychart.tagCloud(data);
         chart.container("poscontainer");
+        chart.title("POSITIVE SENTIMENT");
+        chart.normal().fontFamily('Kanit'); // กำหนดแบบอักษรทั่วไป
+        chart.hovered().fontFamily('Kanit');
         chart.draw();
     });
 
@@ -856,6 +1039,9 @@
         ];
         var chart = anychart.tagCloud(data);
         chart.container("negcontainer");
+        chart.title("NEGATIVE SENTIMENT");
+        chart.normal().fontFamily('Kanit'); // กำหนดแบบอักษรทั่วไป
+        chart.hovered().fontFamily('Kanit');
         chart.draw();
     });
 </script>
