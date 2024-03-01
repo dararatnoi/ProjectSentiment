@@ -563,6 +563,7 @@
                     }
                 });
             });
+            
             document.addEventListener('DOMContentLoaded', function() {
                 var ctx = document.getElementById('horizontalStackedBarChart');
                 var horizontalStackedBarChart = new Chart(ctx, {

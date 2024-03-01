@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ReviewController;
+use App\Models\Review;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +22,9 @@ Route::get('/compare', function () {
     return view('compare');
 });
 
+Route::get('/compare', [ReviewController::class, 'show']);
+
+
+Route::get('/info', function () {
+    phpinfo();
+});

@@ -18,6 +18,9 @@
 </head>
 
 <body>
+
+    <!-- <h1>{{$reviews->textDisplay}}</h1>
+    <h3>{{$reviews->Brand}}</h3> -->
     <!-- Navbar -->
     @include('navbar')
     <div class="container" style="margin-top: 5%">
